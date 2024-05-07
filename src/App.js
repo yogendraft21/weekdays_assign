@@ -1,10 +1,11 @@
 
 import './App.css';
+import FilterComponent from './components/FilterComponent';
 
 function App() {
   return (
     <div className="App">
-      Assignment
+      <FilterComponent/>
     </div>
   );
 }
