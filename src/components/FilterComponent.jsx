@@ -17,7 +17,23 @@ const filterOptions = {
   ],
   numberOfEmployees: ["1-10", "11-20", "21-50", "51-100", "101-500", "500+"],
   experience: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  remote: ["Remote", "Hybrid", "In-Office"],
+  remote: [
+  "Bangalore",
+  "Hyderabad",
+  "Pune",
+  "Chennai",
+  "Mumbai",
+  "Noida",
+  "Gurugram",
+  "Delhi NCR",
+  "Kolkata",
+  "Ahmedabad",
+  "Coimbatore",
+  "Kochi",
+  "Jaipur",
+  "Chandigarh",
+  "Indore"
+],
   minimumBasePaySalary: ["0L", "10L", "20L", "30L", "40L", "50L", "60L", "70L"],
 };
 
@@ -49,9 +65,11 @@ const customStyles = {
 function FilterComponent() {
     const dispatch = useDispatch();
     const filterSelected = useSelector((state) => state.jobs.filters);
-
     const handleFilterChange = (selectedOptions, filterKey) => {
-      const selectedValues = selectedOptions.map((option) => option.value.toString().toLowerCase());
+     const selectedValues = selectedOptions.map((option) => {
+       const value = option.value;
+       return typeof value === "string" ? value.toLowerCase() : value;
+     });
       dispatch(
         updateFilters({ ...filterSelected, [filterKey]: selectedValues })
       );

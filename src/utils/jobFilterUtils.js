@@ -10,24 +10,26 @@ export const filterJobs = (jobs, filters) => {
     return jobs;
   }
 
-  return jobs.filter((job) => {
+    return jobs.filter((job) => {
+        console.log(job);
+        console.log(filters);
     // Role filter
-    if (filters.roles.length > 0 && !filters.roles.includes(job.jobRole.toLowerCase())) {
+    if (filters.roles?.length > 0 && !filters.roles?.includes(job.jobRole.toLowerCase())) {
       return false;
     }
 
     // // Experience filter
-    if (filters.experience && !filters.experience.includes(job.maxExp)) {
+    if (filters.experience?.length > 0 && !filters.experience?.includes(job.minExp)) {
       return false;
     }
 
-    // // Location filter
-    // if (
-    //   filters.location &&
-    //   !filters.location.includes(job.location.toLowerCase())
-    // ) {
-    //   return false;
-    // }
+    // Location filter
+    if (
+      filters.remote?.length > 0 &&
+      !filters.remote?.includes(job.location.toLowerCase())
+    ) {
+      return false;
+    }
 
     // // Number of employees filter
     // if (filters.numberOfEmployees) {
