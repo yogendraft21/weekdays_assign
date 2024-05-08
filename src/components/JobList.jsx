@@ -7,14 +7,13 @@ import { filterJobs } from "../utils/jobFilterUtils";
 const JobList = () => {
   const dispatch = useDispatch();
   const { jobs, loading, error } = useSelector((state) => state.jobs);
-    const filtersValue = useSelector((state) => state.jobs.filters);
-    const search = useSelector((state) => state.jobs.search);
-    console.log(search)
+  const filtersValue = useSelector((state) => state.jobs.filters);
+  const search = useSelector((state) => state.jobs.search);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [offset, setOffset] = useState(0);
   const limit = 10;
-    const [isMounted, setIsMounted] = useState(false);
-    
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
     setIsMounted(true);
     return () => setIsMounted(false);

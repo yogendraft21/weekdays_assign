@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Job Search Application (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Job Search Application is a frontend-only solution designed to help users find job listings based on various filters such as roles, experience, location, and minimum base pay salary. Users can search for jobs by entering keywords in the search bar, and the application dynamically updates the list of job listings based on the applied filters and search criteria.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Filtering:** Users can filter job listings by roles, experience, location, and minimum base pay salary using the provided dropdown menus.
+- **Search:** Users can search for specific job listings by entering keywords in the search bar, and the application will filter the job listings based on the company name.
+- **Infinite Scrolling:** The application supports infinite scrolling, allowing users to load more job listings as they scroll down the page.
+- **Responsive Design:** The application is designed to be responsive, ensuring a seamless user experience across different devices and screen sizes.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React: Frontend framework for building the user interface.
+- Redux: State management library for managing application state.
+- React-Redux: Official Redux bindings for React.
+- React-Select: Customizable select input component for dropdown menus.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Run the Application
 
-### `npm test`
+1. **Clone the Repository:** Clone the repository to your local machine using the following command:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies by running:
 
-### `npm run build`
+`npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Start the Application:** Once the dependencies are installed, start the frontend application by running:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`npm run start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Access the Application:** Open a web browser and navigate to `http://localhost:3000` to access the Job Search Application.
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Contributions to the Job Search Application are welcome! If you have any ideas for new features, bug fixes, or improvements, feel free to open an issue or submit a pull request. Let's collaborate to make this application even better!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
