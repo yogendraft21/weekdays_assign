@@ -6,7 +6,8 @@ import { fetchJobs } from "../actions/jobActions";
 
 const JobList = () => {
   const dispatch = useDispatch();
-  const { jobs, loading, error } = useSelector((state) => state.jobs);
+    const { jobs, loading, error } = useSelector((state) => state.jobs);
+    const [filters, setFilters] = useState([]);
   const [offset, setOffset] = useState(0);
   const limit = 10;
 

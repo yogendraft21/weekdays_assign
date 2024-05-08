@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import "./styles.css";
+import { useDispatch, useSelector } from "react-redux";
+import { updateFilters } from "../actions/jobActions";
 
 const filterOptions = {
   roles: [
@@ -45,6 +47,18 @@ const customStyles = {
 };
 
 function FilterComponent() {
+    const dispatch = useDispatch();
+    const filterSelected = useSelector((state) => state.jobs.filters);
+
+    console.log(filterSelected);
+
+    const handleFilterChange = (selectedOptions, filterKey) => {
+      const selectedValues = selectedOptions.map((option) => option.value);
+      dispatch(
+        updateFilters({ ...filterSelected, [filterKey]: selectedValues })
+      );
+    };
+
   return (
     <div className="filter-container">
       {Object.keys(filterOptions).map((filterKey, index) => (
@@ -60,6 +74,9 @@ function FilterComponent() {
               isMulti={true}
               components={animatedComponents}
               styles={customStyles}
+              onChange={(selectedOptions) =>
+                handleFilterChange(selectedOptions, filterKey)
+              }
             />
           </div>
         </div>

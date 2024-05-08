@@ -1,9 +1,10 @@
-import { FETCH_JOBS_FAILURE, FETCH_JOBS_REQUEST, FETCH_JOBS_SUCCESS } from "../actions/jobActions";
+import { FETCH_JOBS_FAILURE, FETCH_JOBS_REQUEST, FETCH_JOBS_SUCCESS, UPDATE_FILTERS } from "../actions/jobActions";
 
 const initialState = {
   loading: false,
   jobs: [],
   error: "",
+  filters: {},
 };
 
 const jobReducer = (state = initialState, action) => {
@@ -15,6 +16,7 @@ const jobReducer = (state = initialState, action) => {
       };
     case FETCH_JOBS_SUCCESS:
       return {
+        ...state,
         loading: false,
         jobs: [...state.jobs, ...action.payload.jdList],
         count: action.payload.totalCount,
@@ -22,9 +24,18 @@ const jobReducer = (state = initialState, action) => {
       };
     case FETCH_JOBS_FAILURE:
       return {
+        ...state,
         loading: false,
         jobs: [],
         error: action.payload,
+      };
+      case UPDATE_FILTERS:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          ...action.payload,
+        },
       };
     default:
       return state;
