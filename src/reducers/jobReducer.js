@@ -1,4 +1,4 @@
-import { FETCH_JOBS_FAILURE, FETCH_JOBS_REQUEST, FETCH_JOBS_SUCCESS, UPDATE_FILTERS } from "../actions/jobActions";
+import { FETCH_JOBS_FAILURE, FETCH_JOBS_REQUEST, FETCH_JOBS_SUCCESS, RESET_JOBS, UPDATE_FILTERS } from "../actions/jobActions";
 
 const initialState = {
   loading: false,
@@ -29,13 +29,18 @@ const jobReducer = (state = initialState, action) => {
         jobs: [],
         error: action.payload,
       };
-      case UPDATE_FILTERS:
+    case UPDATE_FILTERS:
       return {
         ...state,
         filters: {
           ...state.filters,
           ...action.payload,
         },
+      };
+    case RESET_JOBS:
+      return {
+        ...state,
+        jobs: [],
       };
     default:
       return state;

@@ -2,6 +2,11 @@ export const FETCH_JOBS_REQUEST = "FETCH_JOBS_REQUEST";
 export const FETCH_JOBS_SUCCESS = "FETCH_JOBS_SUCCESS";
 export const FETCH_JOBS_FAILURE = "FETCH_JOBS_FAILURE";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
+export const RESET_JOBS = "RESET_JOBS";
+
+export const resetJobs = () => ({
+  type: RESET_JOBS,
+});
 
 export const updateFilters = (filters) => ({
   type: UPDATE_FILTERS,
@@ -47,7 +52,6 @@ export const fetchJobs = (offset,limit) => {
       }
 
       const result = await response.json();
-      console.log(result)
       dispatch({ type: "FETCH_JOBS_SUCCESS", payload: result });
     } catch (error) {
       dispatch({ type: "FETCH_JOBS_FAILURE", payload: error.message });

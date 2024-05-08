@@ -50,10 +50,8 @@ function FilterComponent() {
     const dispatch = useDispatch();
     const filterSelected = useSelector((state) => state.jobs.filters);
 
-    console.log(filterSelected);
-
     const handleFilterChange = (selectedOptions, filterKey) => {
-      const selectedValues = selectedOptions.map((option) => option.value);
+      const selectedValues = selectedOptions.map((option) => option.value.toString().toLowerCase());
       dispatch(
         updateFilters({ ...filterSelected, [filterKey]: selectedValues })
       );
