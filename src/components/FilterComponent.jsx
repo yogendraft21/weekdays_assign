@@ -3,7 +3,7 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateFilters } from "../actions/jobActions";
+import { searchJobs, updateFilters } from "../actions/jobActions";
 
 const filterOptions = {
   roles: [
@@ -75,6 +75,10 @@ function FilterComponent() {
       );
     };
 
+    const handleSearchChange = (event) => {
+      dispatch(searchJobs(event.target.value));
+    };
+
   return (
     <div className="filter-container">
       {Object.keys(filterOptions).map((filterKey, index) => (
@@ -102,6 +106,7 @@ function FilterComponent() {
           type="text"
           placeholder="Search company name..."
           className="company-search"
+          onChange={handleSearchChange}
         />
       </div>
     </div>

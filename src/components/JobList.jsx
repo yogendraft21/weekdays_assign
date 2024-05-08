@@ -7,7 +7,9 @@ import { filterJobs } from "../utils/jobFilterUtils";
 const JobList = () => {
   const dispatch = useDispatch();
   const { jobs, loading, error } = useSelector((state) => state.jobs);
-  const filtersValue = useSelector((state) => state.jobs.filters);
+    const filtersValue = useSelector((state) => state.jobs.filters);
+    const search = useSelector((state) => state.jobs.search);
+    console.log(search)
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [offset, setOffset] = useState(0);
   const limit = 10;
@@ -31,9 +33,9 @@ const JobList = () => {
   }, [dispatch, isMounted]);
 
   useEffect(() => {
-    const newFilteredJobs = filterJobs(jobs, filtersValue);
+    const newFilteredJobs = filterJobs(jobs, filtersValue, search);
     setFilteredJobs(newFilteredJobs);
-  }, [jobs, filtersValue]);
+  }, [jobs, filtersValue, search]);
 
   const handleScroll = () => {
     if (

@@ -3,6 +3,12 @@ export const FETCH_JOBS_SUCCESS = "FETCH_JOBS_SUCCESS";
 export const FETCH_JOBS_FAILURE = "FETCH_JOBS_FAILURE";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
 export const RESET_JOBS = "RESET_JOBS";
+export const SEARCH_JOBS = "SEARCH_JOBS";
+
+export const searchJobs = (value) => ({
+    type: SEARCH_JOBS,
+    payload: value
+});
 
 export const resetJobs = () => ({
   type: RESET_JOBS,
