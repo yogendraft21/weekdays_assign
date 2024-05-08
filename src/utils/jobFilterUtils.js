@@ -43,17 +43,23 @@ export const filterJobs = (jobs, filters) => {
     //   }
     // }
 
-    // if (filters.minimumBasePaySalary) {
-    //   const salaryMatch = filters.minimumBasePaySalary.some((salary) => {
-    //     if (!job.minJdSalary || !salary) return false;
-    //     const minSalary = Number(salary.replace("l", "").replace("L", ""));
-    //     return job.minJdSalary >= minSalary;
-    //   });
-    //   if (!salaryMatch) {
-    //     return false;
-    //   }
-    // }
-
+    if (filters.minimumBasePaySalary?.length > 0) {
+      const salaryMatch = filters.minimumBasePaySalary.some((salary) => {
+          const minSalary = Number(salary.replace("l", "").replace("L", ""));
+          console.log("both salaries", minSalary, " ", job.minJdSalary);
+          if (job.minJdSalary != null) {
+              return job.minJdSalary >= minSalary;
+          } else {
+              return job.maxJdSalary >= minSalary;
+          }
+      });
+      if (!salaryMatch) {
+        return false;
+      }
+    }
+        
+        
+    
     return true;
   });
 };
